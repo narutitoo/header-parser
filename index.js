@@ -20,7 +20,7 @@ app.get('/api/hello', function (req, res) {
 });
 
 // ✅ Ruta principal solicitada por freeCodeCamp
-app.get('/api/whoami', (req, res) => {
+app.get('https://github.com/narutitoo/header-parser/api/whoami', (req, res) => {
   res.json({
     // ✅ Punto 2: Devuelve la IP del cliente en la clave "ipaddress"
     ipaddress: req.ip,
@@ -34,6 +34,6 @@ app.get('/api/whoami', (req, res) => {
 });
 
 // ✅ Arranca el servidor
-var listener = app.listen(process.env.PORT || 3000, function () {
+var listener = app.listen(process.env.PORT || 1000, function () {
   console.log('Your app is listening on port ' + listener.address().port);
 });
