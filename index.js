@@ -1,26 +1,28 @@
+require('dotenv').config();
 const express = require('express');
+const cors = require('cors');
+
 const app = express();
 
-// Ruta principal opcional (puede evitar el "Cannot GET /")
-app.get('/', (req, res) => {
+// Middleware
+app.use(cors({ optionsSuccessStatus: 200 }));
+app.use(express.static('public'));
+
+// Ruta principal
+app.get('/', function (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
-// Ruta requerida por el proyecto
-app.get("/api/whoami", (req, res) => {
-  const ip = req.headers["x-forwarded-for"]?.split(',')[0] || req.ip;
-  const language = req.headers["accept-language"];
-  const software = req.headers["user-agent"];
-
+// Ruta obligatoria para FreeCodeCamp
+app.get('/api/whoami', function (req, res) {
   res.json({
-    ipaddress: ip,
-    language: language,
-    software: software
+    ipaddress: req.headers['x-forwarded-for'] || req.connection.remoteAddress,
+    language: req.headers['accept-language'],
+    software: req.headers['user-agent']
   });
 });
 
-// Escucha en el puerto que Render provee o 3000 localmente
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Servidor corriendo en el puerto ${PORT}`);
+// Puerto
+const listener = app.listen(process.env.PORT || 3000, function () {
+  console.log('Your app is listening on port ' + listener.address().port);
 });
