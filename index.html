@@ -1,11 +1,71 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Header Parser</title>
-  </head>
-  <body>
-    <h1>Request Header Parser Microservice Narutitoo</h1>
-    <p>Visita <code>/api/whoami</code> para ver la respuesta en JSON.</p>
-    
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Request Header Parser</title>
+  <link rel="shortcut icon" href="https://cdn.freecodecamp.org/universal/favicons/favicon.ico" type="image/x-icon" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1, h2 {
+      color: #444;
+    }
+    a {
+      color: #0066cc;
+      word-break: break-word;
+    }
+    code {
+      display: block;
+      background: #eee;
+      padding: 10px;
+      border-radius: 5px;
+      white-space: pre-wrap;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.9em;
+      color: #888;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Request Header Parser Microservice</h1>
+
+    <h2>Example Usage:</h2>
+    <a href="https://header-parser-fyra.onrender.com/api/whoami">
+      https://header-parser-fyra.onrender.com/api/whoami
+    </a>
+
+    <h2>Example Output:</h2>
+    <code>
+{
+  "ipaddress": "159.20.14.100",
+  "language": "en-US,en;q=0.5",
+  "software": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:50.0) Gecko/20100101 Firefox/50.0"
+}
+    </code>
+  </div>
+
+  <div class="footer">
+    <p>by <a href="https://www.freecodecamp.org/" target="_blank">freeCodeCamp</a></p>
+  </div>
+</body>
 </html>
