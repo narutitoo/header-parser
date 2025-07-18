@@ -1,39 +1,29 @@
 require('dotenv').config();
-var express = require('express');
-var cors = require('cors');
-var app = express();
+const express = require('express');
+const cors = require('cors');
+const app = express();
 
-// ✅ Permite que la API sea accesible desde cualquier origen (necesario para FCC tests)
 app.use(cors({ optionsSuccessStatus: 200 }));
-
-// ✅ Sirve archivos estáticos de la carpeta "public"
 app.use(express.static('public'));
 
-// ✅ Muestra el HTML principal cuando se accede a la raíz "/"
-app.get('/', function (req, res) {
+app.get('/', (req, res) => {
   res.sendFile(__dirname + '/views/index.html');
 });
 
-// ✅ Ruta de prueba
-app.get('/api/hello', function (req, res) {
-  res.json({ greeting: 'hello API' });
-});
+app.get('/api/whoami', (req, res) => {
+  // Obtener la IP real usando el header x-forwarded-for para plataformas como Render
+  const ip = req.headers['x-forwarded-for']?.split(',')[0] || req.ip;
+  const language = req.headers['accept-language'];
+  const software = req.headers['user-agent'];
 
-// ✅ Ruta principal solicitada por freeCodeCamp
-app.get('https://github.com/narutitoo/header-parser/api/whoami', (req, res) => {
   res.json({
-    // ✅ Punto 2: Devuelve la IP del cliente en la clave "ipaddress"
-    ipaddress: req.ip,
-
-    // ✅ Punto 3: Devuelve el idioma preferido del cliente en la clave "language"
-    language: req.headers['accept-language'],
-
-    // ✅ Punto 4: Devuelve información del software/navegador en la clave "software"
-    software: req.headers['user-agent']
+    ipaddress: ip,
+    language: language,
+    software: software
   });
 });
 
-// ✅ Arranca el servidor
-var listener = app.listen(process.env.PORT || 1000, function () {
-  console.log('Your app is listening on port ' + listener.address().port);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server listening on port ${PORT}`);
 });
