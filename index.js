@@ -3,7 +3,10 @@ const app = express();
 
 // Ruta principal opcional (puede evitar el "Cannot GET /")
 app.get('/', (req, res) => {
-  res.send('Request Header Parser Microservice');
+  res.send('Request Header Parser Microservice <a
+        href="https://header-parser-fyra.onrender.com/api/whoami"
+      >
+        [base url]/api/whoami</a>');
 });
 
 // Ruta requerida por el proyecto
