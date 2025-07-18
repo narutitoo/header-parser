@@ -1,71 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Request Header Parser</title>
-  <link rel="shortcut icon" href="https://cdn.freecodecamp.org/universal/favicons/favicon.ico" type="image/x-icon" />
-  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
-  <style>
-    body {
-      font-family: 'Roboto', sans-serif;
-      background: #f4f4f4;
-      margin: 0;
-      padding: 20px;
-      color: #333;
-    }
-    .container {
-      max-width: 800px;
-      margin: 40px auto;
-      background: #fff;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    h1, h2 {
-      color: #444;
-    }
-    a {
-      color: #0066cc;
-      word-break: break-word;
-    }
-    code {
-      display: block;
-      background: #eee;
-      padding: 10px;
-      border-radius: 5px;
-      white-space: pre-wrap;
-    }
-    .footer {
-      text-align: center;
-      margin-top: 40px;
-      font-size: 0.9em;
-      color: #888;
-    }
-  </style>
-</head>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Request Header Parser</title>
+    <link
+      rel="shortcut icon"
+      href="https://cdn.freecodecamp.org/universal/favicons/favicon.ico"
+      type="image/x-icon"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <style>
+      body {
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        padding: 2rem;
+        background-color: #f9f9f9;
+        color: #333;
+      }
+      .container {
+        max-width: 700px;
+        margin: auto;
+        padding: 2rem;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      }
+      h1, h2 {
+        text-align: center;
+      }
+      code {
+        background: #f0f0f0;
+        padding: 10px;
+        display: block;
+        border-radius: 5px;
+        overflow-x: auto;
+      }
+      .footer {
+        margin-top: 2rem;
+        text-align: center;
+        font-size: 0.9em;
+      }
+    </style>
+  </head>
 
-<body>
-  <div class="container">
-    <h1>Request Header Parser Microservice</h1>
+  <body>
+    <div class="container">
+      <h1>API Project: Request Header Parser Microservice</h1>
 
-    <h2>Example Usage:</h2>
-    <a href="https://header-parser-fyra.onrender.com/api/whoami">
-      https://header-parser-fyra.onrender.com/api/whoami
-    </a>
+      <h2>Example Usage:</h2>
+      <p>
+        <a href="/api/whoami">[base url]/api/whoami</a>
+      </p>
 
-    <h2>Example Output:</h2>
-    <code>
-{
-  "ipaddress": "159.20.14.100",
-  "language": "en-US,en;q=0.5",
-  "software": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:50.0) Gecko/20100101 Firefox/50.0"
-}
-    </code>
-  </div>
+      <h2>Example Output:</h2>
+      <code>
+        {
+          "ipaddress": "186.127.236.113",<br />
+          "language": "es-ES,es;q=0.9",<br />
+          "software": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)..."
+        }
+      </code>
+    </div>
 
-  <div class="footer">
-    <p>by <a href="https://www.freecodecamp.org/" target="_blank">freeCodeCamp</a></p>
-  </div>
-</body>
+    <div class="footer">
+      <p>by <a href="https://www.freecodecamp.org/">freeCodeCamp</a></p>
+    </div>
+  </body>
 </html>
