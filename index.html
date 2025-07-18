@@ -11,48 +11,57 @@
     <link
       href="https://fonts.googleapis.com/css?family=Roboto"
       rel="stylesheet"
+      type="text/css"
     />
     <style>
       body {
         font-family: 'Roboto', sans-serif;
-        margin: 0;
-        padding: 2rem;
-        background-color: #f9f9f9;
+        background-color: #f4f4f4;
         color: #333;
+        margin: 2rem;
       }
       .container {
         max-width: 700px;
         margin: auto;
-        padding: 2rem;
         background: white;
-        border-radius: 10px;
+        padding: 2rem;
+        border-radius: 8px;
         box-shadow: 0 0 10px rgba(0,0,0,0.1);
       }
+      a {
+        color: #007acc;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
       code {
-        background: #f0f0f0;
+        background: #eee;
         padding: 10px;
         display: block;
         border-radius: 5px;
-        overflow-x: auto;
+        margin-top: 1rem;
+        white-space: pre-wrap;
       }
     </style>
   </head>
   <body>
     <div class="container">
-      <h1>Request Header Parser</h1>
-      <h2>Uso:</h2>
+      <h1>Request Header Parser Microservice</h1>
+      <h2>Uso</h2>
       <p>
+        Realiza una petición GET a esta ruta para obtener tu información:  
         <a href="/api/whoami">/api/whoami</a>
       </p>
       <h2>Ejemplo de salida:</h2>
       <code>
         {
-          "ipaddress": "186.127.236.113",<br />
-          "language": "es-ES,es;q=0.9",<br />
+          "ipaddress": "123.45.67.89",
+          "language": "es-ES,es;q=0.9",
           "software": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)..."
         }
       </code>
     </div>
   </body>
 </html>
-  
+       
