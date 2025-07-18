@@ -1,30 +1,39 @@
-// index.js
-
 require('dotenv').config();
-const express = require('express');
-const cors = require('cors');
-const app = express();
+var express = require('express');
+var cors = require('cors');
+var app = express();
 
+// ✅ Permite que la API sea accesible desde cualquier origen (necesario para FCC tests)
 app.use(cors({ optionsSuccessStatus: 200 }));
+
+// ✅ Sirve archivos estáticos de la carpeta "public"
 app.use(express.static('public'));
 
-app.get('/', (req, res) => {
+// ✅ Muestra el HTML principal cuando se accede a la raíz "/"
+app.get('/', function (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
-// Endpoint principal
-app.get('/api/whoami', (req, res) => {
-  const ip = req.headers['x-forwarded-for']?.split(',')[0] || req.ip;
-  const language = req.headers['accept-language'];
-  const software = req.headers['user-agent'];
+// ✅ Ruta de prueba
+app.get('/api/hello', function (req, res) {
+  res.json({ greeting: 'hello API' });
+});
 
+// ✅ Ruta principal solicitada por freeCodeCamp
+app.get('/api/whoami', (req, res) => {
   res.json({
-    ipaddress: ip,
-    language: language,
-    software: software
+    // ✅ Punto 2: Devuelve la IP del cliente en la clave "ipaddress"
+    ipaddress: req.ip,
+
+    // ✅ Punto 3: Devuelve el idioma preferido del cliente en la clave "language"
+    language: req.headers['accept-language'],
+
+    // ✅ Punto 4: Devuelve información del software/navegador en la clave "software"
+    software: req.headers['user-agent']
   });
 });
 
-const listener = app.listen(process.env.PORT || 3000, () => {
+// ✅ Arranca el servidor
+var listener = app.listen(process.env.PORT || 3000, function () {
   console.log('Your app is listening on port ' + listener.address().port);
 });
