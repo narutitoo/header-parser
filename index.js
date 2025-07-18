@@ -1,19 +1,26 @@
 const express = require('express');
-const requestIp = require('request-ip');
 const app = express();
 
-// Middleware para detectar IP real
-app.use(requestIp.mw());
+// Ruta principal opcional (puede evitar el "Cannot GET /")
+app.get('/', (req, res) => {
+  res.send('Request Header Parser Microservice');
+});
 
+// Ruta requerida por el proyecto
 app.get('/api/whoami', (req, res) => {
+  const ipaddress = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
+  const language = req.headers['accept-language'];
+  const software = req.headers['user-agent'];
+
   res.json({
-    ipaddress: req.clientIp || 'unknown',
-    language: req.headers['accept-language'] || 'unknown',
-    software: req.headers['user-agent'] || 'unknown'
+    ipaddress,
+    language,
+    software
   });
 });
 
+// Escucha en el puerto que Render provee o 3000 localmente
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Servidor corriendo en puerto ${PORT}`);
+  console.log(`Servidor corriendo en el puerto ${PORT}`);
 });
