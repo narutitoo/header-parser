@@ -3,7 +3,7 @@ const app = express();
 
 // Ruta principal opcional (puede evitar el "Cannot GET /")
 app.get('/', (req, res) => {
-  res.send(index.html);
+  res.send('Request Header Parser Microservice');
 });
 
 // Ruta requerida por el proyecto
