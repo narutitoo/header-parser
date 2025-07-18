@@ -1,15 +1,14 @@
 {
   "name": "header-parser",
   "version": "1.0.0",
-  "description": "Request Header Parser Microservice - freeCodeCamp",
+  "description": "Request Header Parser Microservice",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
-  "keywords": [],
-  "author": "Damian",
-  "license": "MIT",
   "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
     "express": "^4.18.2"
   }
 }
